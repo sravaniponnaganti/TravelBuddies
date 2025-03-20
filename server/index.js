@@ -26,15 +26,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config();
 const app = express();
+app.use(cors({
+  origin: "*"
+}));
 app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors({
-  origin: "*"
-}));
 // Sets the directory where we'll be storing our assets
 // in a real app, it'd be stored on the cloud or the like. For our case, we're storing locally.
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
