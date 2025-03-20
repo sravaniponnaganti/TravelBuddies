@@ -1,3 +1,3 @@
-const baseUrl = "https://sociopedia-api-psi.vercel.app";
+const baseUrl = "https://travelbuddies-omlx.onrender.com";
 
 export default baseUrl;
